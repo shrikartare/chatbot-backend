@@ -1,0 +1,274 @@
+{
+  "url": "https://www2.hm.com/en_gb/customer-service.pageapi.v1.json",
+  "object": {
+    "type": "hm/components/page/content/customerservice",
+    "notClickable": false,
+    "redirectPath": null,
+    "redirectStatus": 0,
+    "meta": {
+      "pageContentPath": "/en_gb/customer-service",
+      "keywords": "",
+      "description": "Need help or support? Find out more about H&M Customer Services in your area, including all the ways you can get in touch.",
+      "ogTitle": "Customer Service | Help & Support | H&M UK",
+      "navTitle": "Customer Service",
+      "ogDescription": "Need help or support? Find out more about H&M Customer Services in your area, including all the ways you can get in touch.",
+      "ogImage": "https://www2.hm.com/content/dam/courtesypageimages/down_for_maintenance.jpeg",
+      "canonicalUrl": "https://www2.hm.com/en_gb/customer-service.html",
+      "title": "Customer Service | Help & Support | H&M UK",
+      "ogOpenGraphTitle": null,
+      "ogOpenGraphDescription": null,
+      "ogOpenGraphUrl": null,
+      "ogOpenGraphImage": null,
+      "ogOpenGraphVideo": null,
+      "ogUrl": "https://www2.hm.com/en_gb/customer-service.html",
+      "robots": {
+        "nofollow": false,
+        "noindex": false
+      },
+      "appUrl": null,
+      "iosAppStoreId": null,
+      "iosAppName": null,
+      "androidPackage": null,
+      "androidAppName": null,
+      "hybrisCatalogName": "",
+      "absoluteURL": "hmgoe://www2.hm.com/en_gb/customer-service.html"
+    },
+    "tealium": {
+      "touchpoint": null,
+      "searchResults": null,
+      "searchType": null,
+      "pageId": "Customerservice : Customerservice : Startpage",
+      "categoryId": "CUSTOMERSERVICE_CUSTOMERSERVICE_STARTPAGE_VIEW_ALL",
+      "tealiumUrl": null,
+      "categoryPath": "CUSTOMERSERVICE_CUSTOMERSERVICE_STARTPAGE_VIEW_ALL",
+      "categoryTemplate": "",
+      "searchTerm": null,
+      "country": null,
+      "language": null,
+      "localeName": null,
+      "countryName": null
+    },
+    "content": [
+      {
+        "links": [
+          {
+            "nodeName": "index",
+            "label": "HM.com",
+            "href": "/en_gb/index.html",
+            "trackingLabel": "index",
+            "isClickable": true
+          },
+          {
+            "nodeName": "customer-service",
+            "label": "Customer Service",
+            "href": "/en_gb/customer-service.html",
+            "trackingLabel": "customer-service",
+            "isClickable": true
+          }
+        ],
+        "type": "hm/components/navigation/breadcrumb"
+      },
+      {
+        "type": "hm/components/general/heading",
+        "heading": "Customer service",
+        "level": 1
+      },
+      {
+        "type": "hm/components/general/heading",
+        "heading": "Hello, how can we help you?",
+        "size": "xs",
+        "level": 2
+      },
+      {
+        "type": "hm/components/general/text",
+        "textMessage": "",
+        "text": "<p style=\"text-align: left;\">Got a question? We may already have the answer for you. Please check out our Frequently Asked Questions section below.</p>"
+      },
+      {
+        "type": "hm/components/customerservice/parcel-tracking",
+        "trackingurl": "https://hm.delivery-status.com/uk/en",
+        "ordertitle": "I want to know where my order is",
+        "orderdescription": "<p>Enter the order number found in the order confirmation email</p>\r\n",
+        "orderlabel": "Order number",
+        "placeholderText": "e.g. 31234567890",
+        "orderbutton": "TRACK ORDER",
+        "errormsg": "Enter your order number",
+        "returnCtaText": "REGISTER A RETURN",
+        "returnUrl": "https://returns.parcellab.com/hm/uk/en/#/",
+        "reactId": "item--1698"
+      },
+      {
+        "type": "hm/components/general/heading",
+        "heading": "FAQ",
+        "size": "xs",
+        "level": 2
+      },
+      {
+        "type": "faqsection",
+        "headline": "",
+        "searchText": "",
+        "noOfFaqsToShow": 5,
+        "aspectRatioDesktop": "",
+        "aspectRatioMobile": "",
+        "headlineColor": "none",
+        "imageAlt": "",
+        "imageUrl": "",
+        "faqs": [
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item--2539",
+            "heading": "Where is my refund?",
+            "content": "<p>You will be refunded to the same payment method you used to make the purchase.</p>\n<p>Please allow up to 14 days for your refund to be issued.</p>\n<p>Your delivery fee will be refunded if you return all items in your order.</p>",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item-18530",
+            "heading": "Where is my return?",
+            "content": "<p>Once we have processed your return in our warehouse, we will send you an email as notice of cancellation.</p>\n<p>If you have not received your return email after 14 days, please contact us with your order number and our team will be happy to help!</p>",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item--8084",
+            "heading": "I am missing items from my order",
+            "content": "If you are missing an item from your order please check if any items were marked as out of stock on your delivery mail, we wont charge you for any cancelled items. If you have ordered one of our external brands these will be delivered in a separate parcel. If you are missing items that were not cancelled, please <u><a href=\"https://www2.hm.com/en_gb/customer-service/contact.html\">contact us</a> </u>with your order informtion so we can help",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item--2976",
+            "heading": "I have received a faulty item",
+            "content": "Please return the faulty item to us to receive a refund back to your original method of payment. You can find information on returns <a href=\"https://www2.hm.com/en_gb/customer-service/returns.html\"><u>here.</u></a>",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item-58784",
+            "heading": "I want to cancel/adjust my order",
+            "content": "We start processing your order quickly which means we can’t make any changes once it’s confirmed. This includes changing the delivery address or delivery option.&nbsp;However you may be able to update these details with the courier directly or cancel your order and place a new one instead as we have a short cancellation window after your order is confirmed. Sign in to My Account and view your online orders under My Purchases. If the ‘Cancel Order’ button is visible, you can select this option and your order will be cancelled. If the button is not visible, it is too late to cancel your order as processing has begun. Should you need to, you can find out about return options instead <u style=\"\"><a href=\"https://www2.hm.com/en_gb/customer-service/returns.html\">here</a></u>.",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item-17954",
+            "heading": "I can't pay with my Gift Card",
+            "content": "You can shop online and in-store using your H&amp;M Gift Card anywhere in the Republic of Ireland. To use it online, select ‘Add Gift Card’ in the ‘Payment’ section when checking out. Enter the 19-digit number and the 4 digit PIN. If you have a physical card, you’ll find these on the back. You can use a Gift Card to pay for your entire order online, or combine it with all other payment methods. Just make sure to use your Gift Card balance first, and you'll be given alternative payment options. If your Gift Card was issued outside the Republic of Ireland, it will only be valid in that country for both in- store and online purchases.",
+            "position": "before",
+            "ctaPosition": "bottom"
+          }
+        ]
+      },
+      {
+        "type": "hm/components/general/text",
+        "textMessage": "",
+        "text": "<p>Klarna&nbsp;- If you have any questions regarding your payment, please contact&nbsp;<a href=\"https://www.klarna.com/uk/customer-service/\">Klarna customer service</a>.</p>\n<p>When you contact Customer Service your personal data will be processed in accordance with our&nbsp;<a href=\"https://www2.hm.com/en_gb/customer-service/legal-and-privacy/privacy-link.html\">Privacy Notice</a>.</p>"
+      },
+      {
+        "type": "hm/components/customerservice/menulist/v1/menulist",
+        "title": "Category",
+        "size": "large",
+        "links": [
+          {
+            "path": "/en_gb/customer-service/shopping-at-hm.html",
+            "text": "Shopping at H&M",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/shippinganddelivery.html",
+            "text": "Delivery",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/payments-info.html",
+            "text": "Payments",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/returns.html",
+            "text": "Returns & Refunds",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/gift-card.html",
+            "text": "Gift Cards",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/product-and-quality.html",
+            "text": "Product & Size",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/h-m-club.html",
+            "text": "H&M Membership",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/legal-and-privacy.html",
+            "text": "Legal & Privacy",
+            "openNewTab": "false"
+          }
+        ],
+        "isRightNavPart": true
+      },
+      {
+        "type": "generictextcomponent",
+        "title": "Contact us",
+        "description": "<p>Our dedicated customer service team are here to help you! For quicker assistance, please explore alternative ways to find your answer as calling might not be the speediest option.<br> &nbsp;</p>\n<p><a href=\"https://www2.hm.com/en_gb/customer-service/contact.html\"><u>REACH OUT</u></a></p>",
+        "reactId": "item-13917",
+        "isRightNavPart": true
+      },
+      {
+        "type": "hm/components/navigation/left",
+        "path": "/en_gb/customer-service.html",
+        "hasCollapse": false,
+        "hasGroupNavigation": true,
+        "menuTitle": "Menu",
+        "empty": false
+      }
+    ],
+    "baseUrl": "https://www2.hm.com/"
+  }
+}

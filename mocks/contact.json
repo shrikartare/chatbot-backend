@@ -1,0 +1,307 @@
+{
+  "url": "https://www2.hm.com/en_gb/customer-service/contact.pageapi.v1.json",
+  "object": {
+    "type": "hm/components/page/content/form/contact",
+    "notClickable": false,
+    "redirectPath": null,
+    "redirectStatus": 0,
+    "meta": {
+      "pageContentPath": "/en_gb/customer-service/contact",
+      "keywords": "",
+      "description": "Have a question or need help? Get in touch with us at H&M. Find contact details and opening hours for our Customer Services.",
+      "ogTitle": "Contact Us | H&M UK Customer Services | H&M UK",
+      "navTitle": "Contact",
+      "ogDescription": "Have a question or need help? Get in touch with us at H&M. Find contact details and opening hours for our Customer Services.",
+      "ogImage": "https://www2.hm.com/content/dam/courtesypageimages/down_for_maintenance.jpeg",
+      "canonicalUrl": "https://www2.hm.com/en_gb/customer-service/contact.html",
+      "title": "Contact Us | H&M UK Customer Services | H&M UK",
+      "ogOpenGraphTitle": null,
+      "ogOpenGraphDescription": null,
+      "ogOpenGraphUrl": null,
+      "ogOpenGraphImage": null,
+      "ogOpenGraphVideo": null,
+      "ogUrl": "https://www2.hm.com/en_gb/customer-service/contact.html",
+      "robots": {
+        "nofollow": false,
+        "noindex": false
+      },
+      "appUrl": null,
+      "iosAppStoreId": null,
+      "iosAppName": null,
+      "androidPackage": null,
+      "androidAppName": null,
+      "hybrisCatalogName": "",
+      "absoluteURL": "hmgoe://www2.hm.com/en_gb/customer-service/contact.html"
+    },
+    "tealium": {
+      "touchpoint": null,
+      "searchResults": null,
+      "searchType": null,
+      "pageId": "Customerservice : Contact : Mainpage",
+      "categoryId": "CUSTOMERSERVICE_CONTACT_MAINPAGE",
+      "tealiumUrl": null,
+      "categoryPath": "CUSTOMERSERVICE_CONTACT_MAINPAGE",
+      "categoryTemplate": "",
+      "searchTerm": null,
+      "country": null,
+      "language": null,
+      "localeName": null,
+      "countryName": null
+    },
+    "content": [
+      {
+        "links": [
+          {
+            "nodeName": "index",
+            "label": "HM.com",
+            "href": "/en_gb/index.html",
+            "trackingLabel": "index",
+            "isClickable": true
+          },
+          {
+            "nodeName": "customer-service",
+            "label": "Customer Service",
+            "href": "/en_gb/customer-service.html",
+            "trackingLabel": "customer-service",
+            "isClickable": true
+          },
+          {
+            "nodeName": "contact",
+            "label": "Contact",
+            "href": "/en_gb/customer-service/contact.html",
+            "trackingLabel": "contact",
+            "isClickable": true
+          }
+        ],
+        "type": "hm/components/navigation/breadcrumb"
+      },
+      {
+        "type": "hm/components/general/heading",
+        "heading": "Contact us\r\n",
+        "level": 1
+      },
+      {
+        "type": "hm/components/general/heading",
+        "heading": "Need more support?",
+        "level": 2
+      },
+      {
+        "type": "hm/components/general/text",
+        "textMessage": "",
+        "text": "<p>Our dedicated Customer Service Team are here to help you, or for quicker assistance you can explore our FAQ to find the information you need.</p>\n<p>You can also use our generative AI chatbot which is available 24/7 to provide quick and accurate answers. Whether you have a customer service question or need help with your order, delivery, returns, or refunds, just ask. If your query requires further assistance, you’ll be connected to a live agent during our opening hours.</p>"
+      },
+      {
+        "type": "hm/components/general/heading",
+        "heading": "FAQ",
+        "size": "xs",
+        "level": 2
+      },
+      {
+        "type": "faqsection",
+        "headline": "",
+        "searchText": "",
+        "noOfFaqsToShow": 0,
+        "aspectRatioDesktop": "",
+        "aspectRatioMobile": "",
+        "headlineColor": "",
+        "imageAlt": "",
+        "imageUrl": "",
+        "faqs": [
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item--1813",
+            "heading": "Where is my refund?",
+            "content": "You will be refunded to the same payment method you used to make the purchase. Please allow up to 14 days for your refund to be issued.",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item-69356",
+            "heading": "Where is my return?",
+            "content": "Once we have processed your return in our warehouse, we will send you an email as notice of cancellation.If you have not received your return email after 14 days, please contact us with your order number and our team will be happy to help!",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item-20987",
+            "heading": "I want to return something",
+            "content": "<p>H&amp;M are happy to refund within 28 days for any unsuitable items, provided they are unworn, unwashed and in a resalable condition.</p>\n<p>To return to our warehouse, log in to our returns portal and let us know what you want to return and why.</p>\n<p>Then select your preferred return method to arrange your collection or drop off.</p>\n<p>Our original packaging can be reused but, if you no longer have it, make sure it’s in something watertight. If you can reuse something you have at home, even better!</p>\n<p>You can return more than one order in the same parcel, just make sure that you register a return for each separate order. If you would rather return in-store, just show the return in-store QR code in your app or order confirmation email.</p>\n<p>Please note that incorrect orders (e.g. wrong or missing items), furniture and lighting can only be returned to our online warehouse.</p>\n<p>Products bought on hm.com from other brands cannot be returned in-store, please follow the return instructions included in the parcel from that brand.</p>",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item--1515",
+            "heading": "Missing items",
+            "content": "If you are missing an item in your order please check if any items were marked as out of stock on your delivery email, we won't charge you for any canceled items. If you have ordered one of our external brands these will be delivered in a separate parcel. If you are missing items that were not cancelled, please contact us with your order information so we can help.",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item-14141",
+            "heading": "I can't log in",
+            "content": "If you’ve tried resetting your password and that hasn’t worked, it might be the case that your account is locked due to a few failed log in attempts. Don't worry! We can get this sorted. If this is the case you will have received an email from us informing of you of this. If you haven’t already, please check your inbox (including junk/spam!).",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item-33509",
+            "heading": "I didn't receive my order confirmation",
+            "content": "Trying to view your order to confirm that it has been placed? Not to worry! You will receive an email confirmation within 24 hours. You can view any new order or past orders by logging into H&amp;M and going to ‘My Account.’ Store purchases will only show here if you logged into the app and had your Member barcode scanned when checking out. If you're having trouble viewing your orders, try logging out and logging back in and that should help! Please note that our system will only save orders up to 12 months. If you have checked out as a guest and haven't received a confirmation email, or you have used the wrong email address, it's best to speak with a live agent who can help you further.",
+            "position": "before",
+            "ctaPosition": "bottom"
+          }
+        ]
+      },
+      {
+        "type": "faqsection",
+        "headline": "",
+        "searchText": "",
+        "noOfFaqsToShow": 0,
+        "aspectRatioDesktop": "",
+        "aspectRatioMobile": "",
+        "headlineColor": "",
+        "imageAlt": "",
+        "imageUrl": "",
+        "faqs": [
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item-13703",
+            "heading": "Help & Contact",
+            "content": "<p><b style=\"\">Chat with us&nbsp;</strong></p>\n<p>You can speak with our chatbot 24/7 for answers to frequently asked questions and be put through to a live agent if you need more help during the opening hours below.&nbsp;</p>\n<p>Monday – Friday: 8am – 10pm<br> Saturday – Sunday: 8am – 6pm</p>\n<p><strong>Call us&nbsp;</strong></p>\n<p>03 44 736 9000<br> Calls from a UK landline will be at the basic national call rates. Mobiles may vary, please check with your provider.&nbsp;<br></p>\n<p><strong>Call Opening Hours</strong></p>\n<p>Monday - Friday: 8am - 9pm<br> Saturday: 9am - 6pm<br> Sunday: 9am - 5pm</p>\n<p>&nbsp;</p>\n<p><strong>Let's Connect On Social Media<br> </strong><a href=\"http://www.facebook.com/hm\">Facebook</a><br> <a href=\"http://www.instagram.com/hm\">Instagram</a><br> <br> <a href=\"mailto:customerservice.uk@hm.com\">customerservice.uk@hm.com</a>&nbsp;-&nbsp;for a faster response chat or call us.</p>",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item-18685",
+            "heading": "Corporate info",
+            "content": "<p>Tax Registration no: GB337762574<u></u></p>\n<p>Registered number: 01413450</p>\n<p><br> Registered Office:</p>\n<p>1st&nbsp;Floor, UK House</p>\n<p>164-182 Oxford Street</p>\n<p>London</p>\n<p>W1D 1NN<br> <strong></strong></p>\n<p>Returns can not be made to this address. See more information on returns&nbsp;<a href=\"https://www2.hm.com/en_gb/customer-service/returns.html\">here</a>.</p>\n<p>&nbsp;</p>\n<p>Find out more about our tax policy&nbsp;<a href=\"https://hmgroup.com/about-us/corporate-governance/policies/\" target=\"_blank\">here</a>.</p>\n<p>&nbsp;</p>\n<p>For information regarding Product Regulatory Compliance, click <a href=\"https://hmgroup.com/about-us/contact-us/\" target=\"_blank\">here</a>.</p>",
+            "position": "before",
+            "ctaPosition": "bottom"
+          },
+          {
+            "imagePath": "",
+            "title": "",
+            "alt": "",
+            "linkURL": "",
+            "enableCta": false,
+            "ctaLinks": [],
+            "subAccordion": [],
+            "id": "item--2050",
+            "heading": "Career at H&M",
+            "content": "<a href=\"https://hmgroup.com/career/find-your-career-with-us/\" target=\"_blank\">Careers - H&amp;M Group (hmgroup.com)</a>",
+            "position": "before",
+            "ctaPosition": "bottom"
+          }
+        ]
+      },
+      {
+        "type": "hm/components/general/text",
+        "textMessage": "",
+        "text": "<p style=\"text-align: left;\">Klarna - If you have any questions regarding your payment, please contact&nbsp;<a href=\"https://www.klarna.com/uk/customer-service/\" target=\"_blank\">Klarna customer service</a>.<br></p>\n<p style=\"text-align: left;\">If you have placed an order using our H&amp;M instalment credit option and wish to make a complaint, please click <a href=\"mailto:Customerservice.UK@hm.com\">here</a>.&nbsp;<br> <br> When you contact Customer Service your personal data will be processed in accordance with our&nbsp;<a href=\"https://www2.hm.com/en_gb/customer-service/legal-and-privacy/privacy-link.html\">Privacy Notice</a>.</p>"
+      },
+      {
+        "type": "hm/components/customerservice/menulist/v1/menulist",
+        "title": "Category",
+        "size": "large",
+        "links": [
+          {
+            "path": "/en_gb/customer-service/shopping-at-hm.html",
+            "text": "Shopping at H&M",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/shippinganddelivery.html",
+            "text": "Delivery",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/payments-info.html",
+            "text": "Payments",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/returns.html",
+            "text": "Returns & Refunds",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/gift-card.html",
+            "text": "Gift Cards",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/product-and-quality.html",
+            "text": "Product & Size",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/h-m-club.html",
+            "text": "H&M Membership",
+            "openNewTab": "false"
+          },
+          {
+            "path": "/en_gb/customer-service/legal-and-privacy.html",
+            "text": "Legal & Privacy",
+            "openNewTab": "false"
+          }
+        ],
+        "isRightNavPart": true
+      }
+    ],
+    "baseUrl": "https://www2.hm.com/"
+  }
+}
