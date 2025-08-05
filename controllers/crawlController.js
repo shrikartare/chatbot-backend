@@ -44,6 +44,7 @@ async function getAEMData(locale, url) {
 // Handles POST /crawl
 exports.handleCrawl = async (req, res) => {
   try {
+    aemPageResponses.length = 0;
     console.log("req.params", req.params["locale"]);
     const locale = req.params["locale"];
     console.log("req", JSON.stringify(req.params));

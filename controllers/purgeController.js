@@ -5,8 +5,8 @@ const { getPineConeNamespace } = require("../shared/getPineconeNamespace");
 // Handles GET /purge
 exports.handlePurge = async (req, res) => {
   try {
-    aemPageResponses = [];
-     const locale = req.params["locale"];
+    aemPageResponses.length = 0;
+    const locale = req.params["locale"];
     await pineconeIndex.namespace(getPineConeNamespace(locale)).deleteAll();
     res
       .status(200)

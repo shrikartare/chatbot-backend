@@ -1,3 +1,3 @@
 // Shared state for AEM page responses
-const aemPageResponses = [];
+let aemPageResponses = [];
 module.exports = aemPageResponses;
