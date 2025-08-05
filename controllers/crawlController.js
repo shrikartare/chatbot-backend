@@ -1,7 +1,16 @@
-const aemPageResponses = require('../shared/aemPageResponses'); // You will need to create this shared state file
+const aemPageResponses = require("../shared/aemPageResponses"); // You will need to create this shared state file
+const { getPineConeNamespace } = require("../shared/getPineconeNamespace");
+const getLocaleSlug = require("../shared/localeURLMapper");
 
-async function getAEMData(url) {
-  const endpoint = `https://www2.hm.com${url.replace(/html/g, "pageapi.v1.json")}`;
+async function getAEMData(locale, url) {
+  let endpoint;
+  if (url)
+    endpoint = `https://www2.hm.com${url.replace(/html/g, "pageapi.v1.json")}`;
+  else
+    endpoint = `https://www2.hm.com/${locale}/${getLocaleSlug(
+      locale
+    )}.pageapi.v1.json`;
+
   console.log("🌐 Fetching:", endpoint);
 
   try {
@@ -10,7 +19,7 @@ async function getAEMData(url) {
 
     aemPageResponses.push({
       pageUrl: endpoint,
-      aemUrl: url,
+      aemUrl: url || `/${locale}/${getLocaleSlug(locale)}`,
       ...results,
     });
 
@@ -18,9 +27,11 @@ async function getAEMData(url) {
     for (const item of content) {
       if (item?.type === "hm/components/customerservice/menulist/v1/menulist") {
         for (const link of item.links || []) {
-          const alreadyCrawled = aemPageResponses.some((p) => p.aemUrl === link.path);
+          const alreadyCrawled = aemPageResponses.some(
+            (p) => p.aemUrl === link.path
+          );
           if (!alreadyCrawled) {
-            await getAEMData(link.path);
+            await getAEMData(locale, link.path);
           }
         }
       }
@@ -33,12 +44,11 @@ async function getAEMData(url) {
 // Handles POST /crawl
 exports.handleCrawl = async (req, res) => {
   try {
-    const { url } = req.body;
-    if (!url) {
-      return res.status(400).json({ error: "Missing 'url' in request body" });
-    }
-
-    await getAEMData(url);
+    console.log("req.params", req.params["locale"]);
+    const locale = req.params["locale"];
+    console.log("req", JSON.stringify(req.params));
+    console.log("locale", locale);
+    await getAEMData(locale);
 
     if (!aemPageResponses.length) {
       return res.status(404).json({ error: "No pages crawled from the URL" });

@@ -1,7 +1,8 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 const crawlController = require('../controllers/crawlController');
 
-router.post('/', crawlController.handleCrawl);
+// Handles GET /:locale/crawl and POST /:locale/crawl/
+router.get('/', crawlController.handleCrawl);
 
 module.exports = router;

@@ -1,5 +1,6 @@
-const openai = require('../services/openai');
-const { pineconeIndex } = require('../services/pinecone');
+const openai = require("../services/openai");
+const { pineconeIndex } = require("../services/pinecone");
+const { getPineConeNamespace } = require("../shared/getPineconeNamespace");
 
 // You may want to move these helpers to a shared utils/services file if used by other controllers
 async function embedText(text) {
@@ -15,12 +16,13 @@ async function embedText(text) {
   }
 }
 
-async function queryPinecone(query, topK = 3) {
+async function queryPinecone(locale, query, topK = 3) {
   try {
     const queryEmbedding = await embedText(query);
     if (!queryEmbedding) return [];
 
-    const queryResponse = await pineconeIndex.namespace("chatbot-data").query({
+    const namespace = getPineConeNamespace(locale);
+    const queryResponse = await pineconeIndex.namespace(namespace).query({
       vector: queryEmbedding,
       topK,
       includeMetadata: true,
@@ -36,14 +38,19 @@ async function queryPinecone(query, topK = 3) {
 // Handles POST /chat
 exports.handleChat = async (req, res) => {
   try {
+    const locale = req.params["locale"];
     const { question, messages: previousMessages } = req.body;
     if (!question) {
-      return res.status(400).json({ error: "Missing 'question' in request body" });
+      return res
+        .status(400)
+        .json({ error: "Missing 'question' in request body" });
     }
 
-    const relevantChunks = await queryPinecone(question);
+    const relevantChunks = await queryPinecone(locale, question);
     if (!relevantChunks.length) {
-      return res.status(404).json({ error: "No relevant context found for your question." });
+      return res
+        .status(404)
+        .json({ error: "No relevant context found for your question." });
     }
 
     const context = relevantChunks.join("\n\n");
@@ -68,6 +75,8 @@ exports.handleChat = async (req, res) => {
     });
   } catch (err) {
     console.error("❌ /chat route error:", err.message);
-    res.status(500).json({ error: "Internal server error while generating answer" });
+    res
+      .status(500)
+      .json({ error: "Internal server error while generating answer" });
   }
 };

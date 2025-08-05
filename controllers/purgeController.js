@@ -1,11 +1,13 @@
 const { pineconeIndex } = require("../services/pinecone");
 const aemPageResponses = require("../shared/aemPageResponses");
+const { getPineConeNamespace } = require("../shared/getPineconeNamespace");
 
 // Handles GET /purge
 exports.handlePurge = async (req, res) => {
   try {
     aemPageResponses = [];
-    await pineconeIndex.namespace("chatbot-data").deleteAll();
+     const locale = req.params["locale"];
+    await pineconeIndex.namespace(getPineConeNamespace(locale)).deleteAll();
     res
       .status(200)
       .json({ message: "All data purged from Pinecone successfully." });

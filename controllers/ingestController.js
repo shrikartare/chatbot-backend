@@ -1,6 +1,7 @@
-const aemPageResponses = require('../shared/aemPageResponses');
-const summarizeJSON = require('../utils/summarizeJSON');
-const { pineconeIndex } = require('../services/pinecone');
+const aemPageResponses = require("../shared/aemPageResponses");
+const summarizeJSON = require("../utils/summarizeJSON");
+const { pineconeIndex } = require("../services/pinecone");
+const { getPineConeNamespace } = require("../shared/getPineconeNamespace");
 
 function chunkJSON(jsonObj, chunkSize = 2000) {
   try {
@@ -18,7 +19,7 @@ function chunkJSON(jsonObj, chunkSize = 2000) {
 }
 
 async function embedText(text) {
-  const openai = require('../services/openai');
+  const openai = require("../services/openai");
   try {
     const res = await openai.embeddings.create({
       model: "text-embedding-ada-002",
@@ -31,7 +32,7 @@ async function embedText(text) {
   }
 }
 
-async function upsertChunksToPinecone(chunks) {
+async function upsertChunksToPinecone(chunks, locale) {
   try {
     const embeddedChunks = [];
     for (const chunk of chunks) {
@@ -44,7 +45,9 @@ async function upsertChunksToPinecone(chunks) {
       });
     }
     if (embeddedChunks.length > 0) {
-      await pineconeIndex.namespace("chatbot-data").upsert(embeddedChunks);
+      await pineconeIndex
+        .namespace(getPineConeNamespace(locale))
+        .upsert(embeddedChunks);
       console.log(`✅ Upserted ${embeddedChunks.length} chunks to Pinecone`);
     } else {
       console.warn("⚠️ No valid embeddings generated to upsert.");
@@ -71,8 +74,9 @@ async function initializePineconeData() {
         id: `${pageResponse?.aemUrl}-${idx}`,
         text,
       }));
-      await upsertChunksToPinecone(chunkObjects);
+      return chunkObjects;
     }
+    return
     console.log("✅ Ingestion completed.");
   } catch (error) {
     console.error("❌ Error during ingestion:", error.message);
@@ -82,10 +86,15 @@ async function initializePineconeData() {
 // Handles GET /ingest
 exports.handleIngest = async (req, res) => {
   try {
+    // Use req.params.locale if needed
+    const locale = req.params["locale"];
     if (!aemPageResponses.length) {
-      return res.status(400).json({ error: "No crawled data found. Run /crawl first." });
+      return res
+        .status(400)
+        .json({ error: "No crawled data found. Run /crawl first." });
     }
-    await initializePineconeData();
+    const chunkObjects = await initializePineconeData();
+    await upsertChunksToPinecone(chunkObjects, locale);
     res.status(200).json({ message: "Data ingestion done successfully" });
   } catch (error) {
     console.error("❌ /ingest route error:", error.message);
