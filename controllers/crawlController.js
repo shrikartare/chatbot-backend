@@ -14,7 +14,14 @@ async function getAEMData(locale, url) {
   console.log("🌐 Fetching:", endpoint);
 
   try {
-    const response = await fetch(endpoint);
+    const response = await fetch(endpoint, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        Accept: "text/html,application/xhtml+xml",
+        "Accept-Language": "en-US,en;q=0.9",
+        Referer: "https://google.com",
+      },
+    });
     console.log("result status", response.status);
     const results = await response.json();
 
