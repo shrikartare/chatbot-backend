@@ -75,8 +75,9 @@ async function initializePineconeData() {
         id: `${pageResponse?.aemUrl}-${idx}`,
         text,
       }));
-      return chunkObjects;
+      await upsertChunksToPinecone(chunkObjects, locale);
     }
+
     return;
     console.log("✅ Ingestion completed.");
   } catch (error) {
@@ -95,7 +96,7 @@ exports.handleIngest = async (req, res) => {
         .json({ error: "No crawled data found. Run /crawl first." });
     }
     const chunkObjects = await initializePineconeData();
-    await upsertChunksToPinecone(chunkObjects, locale);
+
     res.status(200).json({ message: "Data ingestion done successfully" });
   } catch (error) {
     console.error("❌ /ingest route error:", error.message);
