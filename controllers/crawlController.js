@@ -15,6 +15,7 @@ async function getAEMData(locale, url) {
 
   try {
     const response = await fetch(endpoint);
+    console.log("result status", response.status);
     const results = await response.json();
 
     aemPageResponses.push({
