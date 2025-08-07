@@ -16,7 +16,7 @@ async function embedText(text) {
   }
 }
 
-async function queryPinecone(locale, query, topK = 3) {
+async function queryPinecone(locale, query, topK = 20) {
   try {
     const queryEmbedding = await embedText(query);
     if (!queryEmbedding) return [];

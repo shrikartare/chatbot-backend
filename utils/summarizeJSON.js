@@ -1,62 +1,39 @@
-function summarizeJSON(obj,indent = 0){
-  const indentStr = '  '.repeat(indent);
-  let lines = [];
+function summarizeJSON(obj) {
+  let components = [];
 
-  // Helper to safely stringify simple values
-  const safeStringify = val => {
-    if (val === null) return 'null';
-    if (val === undefined) return 'undefined';
-    if (typeof val === 'object') return '[Object]';
-    return val.toString();
-  };
+  function traverse(node) {
+    if (Array.isArray(node)) {
+      node.forEach(traverse);
+    } else if (typeof node === 'object' && node !== null) {
+      if (node.type && typeof node.type === 'string') {
+        // Found a component
+        const lines = [`Component Type: ${node.type}`];
 
-  // If it's an array, iterate items
-  if (Array.isArray(obj)) {
-    obj.forEach((item, idx) => {
-      lines.push(`${indentStr}- Item ${idx + 1}:`);
-      lines.push(summarizeJSON(item, indent + 1));
-    });
-    return lines.join('\n');
-  }
+        for (const [key, value] of Object.entries(node)) {
+          if (key === 'type') continue;
 
-  // If it's an object
-  if (typeof obj === 'object' && obj !== null) {
-    // Special handling for main keys in your structure
-    if ('type' in obj) {
-      lines.push(`${indentStr}Component Type: ${obj.type}`);
-    }
-
-    // Iterate keys
-    for (const [key, value] of Object.entries(obj)) {
-      if (key === 'type') continue; // Already handled
-
-      if (value === null || value === undefined) {
-        lines.push(`${indentStr}${key}: ${safeStringify(value)}`);
-      } else if (typeof value === 'object') {
-        // For arrays or objects, recurse with label
-        if (Array.isArray(value)) {
-          lines.push(`${indentStr}${key}:`);
-          if (value.length === 0) {
-            lines.push(`${indentStr}  (empty array)`);
-          } else {
-            value.forEach((item, idx) => {
-              lines.push(`${indentStr}  - Item ${idx + 1}:`);
-              lines.push(summarizeJSON(item, indent + 2));
-            });
+          if (typeof value === 'object') {
+            // Avoid printing [Object] or nested stuff directly
+            continue;
           }
-        } else {
-          lines.push(`${indentStr}${key}:`);
-          lines.push(summarizeJSON(value, indent + 1));
+
+          lines.push(`${key}: ${value}`);
         }
-      } else {
-        lines.push(`${indentStr}${key}: ${safeStringify(value)}`);
+
+        components.push(lines.join('\n'));
+      }
+
+      // Recurse into children
+      for (const val of Object.values(node)) {
+        traverse(val);
       }
     }
-    return lines.join('\n');
   }
 
-  // For primitive values
-  return `${indentStr}${safeStringify(obj)}`;
+  traverse(obj);
+
+  // Format as numbered list
+  return components.map((block, i) => `${i + 1}. ${block}`).join('\n\n');
 }
 
-module.exports = summarizeJSON;
+module.exports = summarizeJSON

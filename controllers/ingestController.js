@@ -3,7 +3,7 @@ const summarizeJSON = require("../utils/summarizeJSON");
 const { pineconeIndex } = require("../services/pinecone");
 const { getPineConeNamespace } = require("../shared/getPineconeNamespace");
 
-function chunkJSON(jsonObj, chunkSize = 2000) {
+function chunkJSON(jsonObj, chunkSize = 300) {
   try {
     const text = summarizeJSON(jsonObj);
     // Split text into chunks of chunkSize characters
@@ -57,7 +57,7 @@ async function upsertChunksToPinecone(chunks, locale) {
   }
 }
 
-async function initializePineconeData() {
+async function initializePineconeData(locale) {
   try {
     if (!aemPageResponses.length) {
       console.warn("⚠️ No data to ingest. Run /crawl first.");
@@ -66,7 +66,10 @@ async function initializePineconeData() {
     console.log("aemPageRepsonses", aemPageResponses.length);
     for (const pageResponse of aemPageResponses) {
       console.log("🔗 Processing:", pageResponse.aemUrl);
-      const chunks = chunkJSON(pageResponse);
+      const chunks = chunkJSON({
+        pageResponse,
+        pageUrl: pageResponse?.pageUrl,
+      });
       if (!chunks.length) {
         console.warn(`⚠️ No chunks found for ${pageResponse.aemUrl}`);
         continue;
@@ -95,7 +98,7 @@ exports.handleIngest = async (req, res) => {
         .status(400)
         .json({ error: "No crawled data found. Run /crawl first." });
     }
-    const chunkObjects = await initializePineconeData();
+    const chunkObjects = await initializePineconeData(locale);
 
     res.status(200).json({ message: "Data ingestion done successfully" });
   } catch (error) {
