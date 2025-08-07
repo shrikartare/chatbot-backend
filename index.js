@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 // openai and pineconeIndex are now imported from services
 const aemPageResponses = require('./shared/aemPageResponses');
-
+  
 // Modularized routes with dynamic locale
 app.use('/:locale/chat', require('./routes/chat'));
 app.use('/:locale/crawl', require('./routes/crawl'));

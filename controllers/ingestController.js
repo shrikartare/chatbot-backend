@@ -63,7 +63,7 @@ async function initializePineconeData() {
       console.warn("⚠️ No data to ingest. Run /crawl first.");
       return;
     }
-    for (const pageResponse of aemPageResponses.slice(0, 2)) {
+    for (const pageResponse of aemPageResponses) {
       console.log("🔗 Processing:", pageResponse.aemUrl);
       const chunks = chunkJSON(pageResponse);
       if (!chunks.length) {
@@ -76,7 +76,7 @@ async function initializePineconeData() {
       }));
       return chunkObjects;
     }
-    return
+    return;
     console.log("✅ Ingestion completed.");
   } catch (error) {
     console.error("❌ Error during ingestion:", error.message);
