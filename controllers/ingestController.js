@@ -63,6 +63,7 @@ async function initializePineconeData() {
       console.warn("⚠️ No data to ingest. Run /crawl first.");
       return;
     }
+    console.log("aemPageRepsonses", aemPageResponses.length);
     for (const pageResponse of aemPageResponses) {
       console.log("🔗 Processing:", pageResponse.aemUrl);
       const chunks = chunkJSON(pageResponse);
