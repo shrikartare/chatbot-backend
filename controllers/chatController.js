@@ -58,7 +58,7 @@ exports.handleChat = async (req, res) => {
     const messageList = [
       {
         role: "system",
-        content: `You are a helpful chatbot that answers questions based on the JSON context data below. Use only the information from the context. Answer clearly.\n\nContext:\n${context}`,
+        content: `You are a helpful chatbot that answers questions based on the JSON context data below. Use only the information from the context. Answer clearly in proper formatted way in HTML format.\n\nContext:\n${context}`,
       },
       ...(previousMessages || []),
       { role: "user", content: question },
