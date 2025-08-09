@@ -28,7 +28,14 @@ async function queryPinecone(locale, query, topK = 20) {
       includeMetadata: true,
     });
 
-    return queryResponse.matches?.map((match) => match.metadata.text) || [];
+    return (
+      queryResponse.matches?.map((match) => {
+        return {
+          text: match.metadata.text,
+          pageurl: match.metadata.pageurl,
+        };
+      }) || []
+    );
   } catch (err) {
     console.error("❌ Error querying Pinecone:", err.message);
     return [];
@@ -47,14 +54,19 @@ exports.handleChat = async (req, res) => {
     }
 
     const relevantChunks = await queryPinecone(locale, question);
+    const cleanedUrls = relevantChunks.map((chunk) =>
+      chunk?.pageurl?.trim().toLowerCase()
+    );
+
+    // Use Set to get unique URLs
+    const sourceURLs = [...new Set(cleanedUrls)];
     if (!relevantChunks.length) {
       return res
         .status(404)
         .json({ error: "No relevant context found for your question." });
     }
 
-    const context = relevantChunks.join("\n\n");
-
+    const context = relevantChunks.map((chunk) => chunk.text).join("\n\n");
     const messageList = [
       {
         role: "system",
@@ -69,8 +81,13 @@ exports.handleChat = async (req, res) => {
       temperature: 0,
     });
 
+    let answer = `${
+      response.choices[0].message.content
+    }\n\n\nSource URLS are: ${sourceURLs.join("\n")}`;
+    answer = answer.replace(/\n/g, "<br>");
+
     res.status(200).json({
-      answer: response.choices[0].message.content,
+      answer,
       contextUsed: context,
     });
   } catch (err) {

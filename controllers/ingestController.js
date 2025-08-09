@@ -32,7 +32,7 @@ async function embedText(text) {
   }
 }
 
-async function upsertChunksToPinecone(chunks, locale) {
+async function upsertChunksToPinecone(chunks, locale, pageURL) {
   try {
     const embeddedChunks = [];
     for (const chunk of chunks) {
@@ -41,7 +41,7 @@ async function upsertChunksToPinecone(chunks, locale) {
       embeddedChunks.push({
         id: chunk.id,
         values: embedding,
-        metadata: { text: chunk.text },
+        metadata: { text: chunk.text, pageurl: pageURL },
       });
     }
     if (embeddedChunks.length > 0) {
@@ -64,7 +64,7 @@ async function initializePineconeData(locale) {
       return;
     }
     console.log("aemPageRepsonses", aemPageResponses.length);
-    for (const pageResponse of aemPageResponses) {
+    for (const pageResponse of aemPageResponses.slice(0,3)) {
       console.log("🔗 Processing:", pageResponse.aemUrl);
       const chunks = chunkJSON({
         pageResponse,
@@ -78,7 +78,7 @@ async function initializePineconeData(locale) {
         id: `${pageResponse?.aemUrl}-${idx}`,
         text,
       }));
-      await upsertChunksToPinecone(chunkObjects, locale);
+      await upsertChunksToPinecone(chunkObjects, locale, pageResponse.pageUrl);
     }
 
     return;
